@@ -1,0 +1,25 @@
+<div>
+    <br>
+    <mat-card>
+      <section class="mat-typography">
+        <h3>Please enter the text to encrypt</h3>
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+      <form [formGroup]="createForm" class="create-form">
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Text" formControlName="text" #text>
+        </mat-form-field>
+
+        <br><br>
+        <mat-form-field class="field-full-width">
+                <input matInput placeholder="Result" formControlName="result" #result readonly>
+              </mat-form-field>
+
+        <mat-divider></mat-divider>
+        <br><br>
+        <button mat-raised-button color="accent" routerLink="/encrypt">Back</button>&nbsp;
+        <button type="submit" (click)="encryptText(text.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Encrypt</button>
+      </form>
+    </mat-card>
+  </div>
